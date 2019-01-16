@@ -20,3 +20,10 @@ export function starFriend(id) {
     id
   };
 }
+
+export function goTo(page) {
+  return {
+    type: types.GO_TO,
+    payload: page
+  };
+}

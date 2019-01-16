@@ -1,6 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  page: 0,
+  itemsPerPage: 2,
   friendsById: [
     {
       name: 'Theodore Roosevelt',
@@ -37,11 +39,19 @@ export default function friends(state = initialState, action) {
     case types.STAR_FRIEND:
       let friends = [...state.friendsById];
       let friend = friends.find((item, index) => index === action.id);
+
+      // reducer is not supposed to mutate state
+      // it's better to create new object
       friend.starred = !friend.starred;
       return {
         ...state,
         friendsById: friends
       };
+    case types.GO_TO:
+      return {
+        ...state,
+        page: action.payload
+      }
 
     default:
       return state;
