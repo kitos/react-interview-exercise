@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import styles from './Pagination.css';
 
@@ -11,7 +12,9 @@ let Pagination = ({ page, itemsPerPage, total, onChange }) => {
       {pages.map((_, i) => (
         <li key={i} className={styles.paginationItem}>
           <a
-            className={styles.paginationLink}
+            className={classnames(styles.paginationLink, {
+              current: i === page
+            })}
             href={`#${i}`}
             onClick={e => {
               e.preventDefault();

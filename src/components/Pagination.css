@@ -11,7 +11,12 @@
 
 :local(.paginationLink) {
   background: #fff;
+  border: 2px dashed transparent;
   padding: 5px 10px;
   margin: 0 5px;
   display: block;
+}
+
+:local(.paginationLink).current {
+  border-color: green;
 }
