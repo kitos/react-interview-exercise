@@ -39,9 +39,16 @@ export default function friends(state = initialState, action) {
         ]
       };
     case types.DELETE_FRIEND:
+      let updatedFriends = state.friendsById.filter(
+        ({ id }) => id !== action.id
+      );
+      let lastPageIndex =
+        Math.ceil(updatedFriends.length / state.itemsPerPage) - 1;
+
       return {
         ...state,
-        friendsById: state.friendsById.filter(({ id }) => id !== action.id)
+        friendsById: updatedFriends,
+        page: state.page > lastPageIndex ? state.page - 1 : state.page
       };
     case types.STAR_FRIEND:
       let friends = [...state.friendsById];
