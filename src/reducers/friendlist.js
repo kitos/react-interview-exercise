@@ -10,16 +10,19 @@ const initialState = {
     {
       id: uuid(),
       name: 'Theodore Roosevelt',
+      sex: 'male',
       starred: true
     },
     {
       id: uuid(),
-      name: 'Abraham Lincoln',
+      name: 'Angela Merkel',
+      sex: 'female',
       starred: false
     },
     {
       id: uuid(),
       name: 'George Washington',
+      sex: 'male',
       starred: false
     }
   ]
@@ -33,8 +36,8 @@ export default function friends(state = initialState, action) {
         friendsById: [
           ...state.friendsById,
           {
+            ...action.payload,
             id: uuid(),
-            name: action.name
           }
         ]
       };

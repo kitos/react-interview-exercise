@@ -4,3 +4,13 @@
   border-left: 0;
   border-right: 0;
 }
+
+:local(.sexLabel) {
+  color: #fff;
+  padding: 5px 10px;
+}
+
+:local(.sexLabel) select {
+  color: #000;
+  margin-left: 5px;
+}
